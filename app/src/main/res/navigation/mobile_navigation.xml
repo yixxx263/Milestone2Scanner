@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.milestone2scanner.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.milestone2scanner.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.milestone2scanner.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_scanner"
+        android:name="com.example.milestone2scanner.ui.scanner.ScannerFragment"
+        android:label="@string/menu_scanner"
+        tools:layout="@layout/fragment_scanner" >
+        <action
+            android:id="@+id/action_nav_scanner_to_nav_scanned"
+            app:destination="@id/nav_scanned" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_scanned"
+        android:name="com.example.milestone2scanner.ui.scanned.ScannedFragment"
+        android:label="@string/menu_scanned"
+        tools:layout="@layout/fragment_scanned" >
+        <action
+            android:id="@+id/action_nav_scanned_to_nav_scanner"
+            app:destination="@id/nav_scanner" />
+        <action
+            android:id="@+id/action_nav_scanned_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+</navigation>
